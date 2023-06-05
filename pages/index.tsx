@@ -151,7 +151,7 @@ const Index = () => (
           <div className="w-[200px] h-[200px] bg-gray-600 relative rounded-[50%] overflow-hidden">
             <img
               className="absolute top-0 left-0 w-[100%] h-[100%] object-cover"
-              src="/cat.jpg"
+              src="/static/cat.jpg"
               alt=""
             />
           </div>
