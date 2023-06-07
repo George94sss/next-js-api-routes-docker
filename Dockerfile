@@ -50,6 +50,7 @@ FROM node:alpine
 RUN mkdir -p /usr/src
 WORKDIR /usr/src
 
+
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
