@@ -45,6 +45,7 @@
 
 # base image
 FROM node:alpine
+RUN apk add --no-cache libc6-compat
 
 # create & set working directory
 RUN mkdir -p /usr/src
