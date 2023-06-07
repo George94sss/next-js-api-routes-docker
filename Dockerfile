@@ -1,30 +1,30 @@
-FROM node:18-alpine AS deps
-RUN apk add --no-cache libc6-compat
+# FROM node:18-alpine AS deps
+# RUN apk add --no-cache libc6-compat
 
-RUN mkdir -p /app
-WORKDIR /app
+# RUN mkdir -p /app
+# WORKDIR /app
 
-# COPY package.json ./app/src
-COPY . /app
+# # COPY package.json ./app/src
+# COPY . /app
 
-RUN  npm install --production
-
-
-FROM node:18-alpine AS builder
-WORKDIR /app
-COPY --from=deps /app/src/node_modules ./node_modules
-COPY ./app ./
+# RUN  npm install --production
 
 
-ENV NEXT_TELEMETRY_DISABLED 1
+# FROM node:18-alpine AS builder
+# WORKDIR /app
+# COPY --from=deps /app/src/node_modules ./node_modules
+# COPY ./app ./
 
-RUN npm run build
 
-FROM node:18-alpine AS runner
-WORKDIR /app
+# ENV NEXT_TELEMETRY_DISABLED 1
 
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
+# RUN npm run build
+
+# FROM node:18-alpine AS runner
+# WORKDIR /app
+
+# ENV NODE_ENV production
+# ENV NEXT_TELEMETRY_DISABLED 1
 
 # RUN addgroup --system --gid 1001 nodejs
 # RUN adduser --system --uid 1001 nextjs
