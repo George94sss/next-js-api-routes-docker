@@ -58,6 +58,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 COPY . /usr/src
 
 # install dependencies
+RUN npm install -g npm@latest
 RUN npm install
 
 # start app
