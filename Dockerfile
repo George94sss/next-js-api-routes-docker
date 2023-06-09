@@ -10,7 +10,7 @@ COPY components  ./components
 COPY public  ./public
 
 
-RUN  npm install --production
+RUN  yarn install --production
 
 
 FROM node:18-alpine AS builder
@@ -26,7 +26,7 @@ COPY --from=deps /app/components  ./components
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN npm run build
+RUN yarn run build
 
 FROM node:18-alpine AS runner
 WORKDIR /app
@@ -48,7 +48,7 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["npm","run", "start"]
+CMD ["yarn","run", "start"]
 
 
 
